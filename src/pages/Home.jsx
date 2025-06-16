@@ -7,7 +7,7 @@ const Home = () => {
 
   const getEmployees = async () => {
     try {
-      const res = await api.get('/');
+      const res = await api.get('/employees');
       setEmployees(res.data.data);
     } catch (err) {
       console.error('Error fetching employees:', err);
@@ -16,7 +16,7 @@ const Home = () => {
 
   const handleDelete = async (id) => {
     try {
-      await api.delete(`/${id}`);
+      await api.delete(`/employees/${id}`);
       getEmployees();
     } catch (err) {
       console.error('Error deleting:', err);
