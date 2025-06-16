@@ -21,8 +21,9 @@ const AddEmployee = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await api.post('/', form);
-      navigate('/');
+       const response = await api.post('/employees', form);
+       console.log('Employee added:', response.data);
+       navigate('/');
     } catch (err) {
       console.error('Error adding employee:', err);
     }
