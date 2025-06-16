@@ -17,7 +17,7 @@ const EditEmployee = () => {
   useEffect(() => {
     const fetchEmployee = async () => {
       try {
-        const res = await api.get(`/${id}`);
+        const res = await api.get(`/employees/${id}`);
         console.log('Loaded employee:', res.data);
         setForm(res.data.data); // Or res.data if your API returns plain object
       } catch (err) {
@@ -35,7 +35,7 @@ const EditEmployee = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await api.put(`/${id}`, form);
+      await api.put(`/employees/${id}`, form);
       navigate('/'); // Redirect to home
     } catch (err) {
       console.error('Error updating employee:', err);
